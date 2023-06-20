@@ -1,0 +1,79 @@
+out_channels:
+  desc: out_channels
+  value: 256
+in_channels:
+  desc: in_channels
+  value: 512
+num_blocks:
+  desc: num_blocks
+  value: 16
+upsampling_depth:
+  desc: upsampling_depth
+  value: 5
+enc_kernel_size:
+  desc: enc_kernel_size, 41:16khz,21:8khz
+  value: 21
+enc_num_basis:
+  desc: enc_num_basis
+  value: 512
+lr:
+  desc: We use LR decay that starts with this value
+  value: 0.001
+sr:
+  desc: sampling rate of the audio
+  value: 8000
+batch_size:
+  dec: batch batch_size
+  value: 4
+workers:
+  desc: number of cpu worker for data processing
+  value: 10
+Patience:
+  dec: how much should it allow no improvement
+  value: 30
+norm:
+  desc: normalization method
+  value: "GLN"
+num_spks:
+  desc: speech separation between x speakers
+  value: 1
+activate:
+  desc: activation function
+  value: "relu"
+scheduler_mode:
+  desc: something
+  value: "min"
+scheduler_factor:
+  desc: something
+  value: 0.5
+epochs:
+  desc: epochs
+  value: 300
+Experiment:
+  desc: -1 means uni-ch audio alone, -2 mean bi-channel audio alone, 0 uni ipd + uni-ch, 1 bi-ipd + uni-ch, 2 bi-ipd + single ch, -1.5 2-ch uni model
+  value: -2
+save_name:
+  desc: prefix of checkpoints
+  value: "sudoRm-2ch-bilateral-wsj2mix-onlineMix-ES-ild-run2"
+save_dir:
+  desc: where store the batched inference
+  value: "sudoRm-WsJ2Mix/"
+train_file:
+  dec: train file in use #Train-30k-PosSNR.csv"Train-Libri2Mix.csv,Train-8k-posSNR.csv,TrainDifGender,Train_60k,TrainSin-cos,TrainDiffGender_snr10_40k,Train_40,5k_brir(0-5).csv
+  value: "Train-WSJ-2mix-min-8k-OnlineMix.csv"
+test_file:
+  dec: test file in use Test-Libri2Mix.csv Test-posSNR.csv,TestDiffGender_snr10_3k.csv,Test_3k_brir(0-5).csv
+  value: "Test_.csv" #"Test-WSJ-2mix-min-8k-FeyisMix.csv"
+val_file:
+  dec: val file in use #Dev-Libri2Mix.csv Val-posSNR.csv,Val_t60k_6k.csv,ValDiffGender_snr10_40k,ValDiffGender_snr10_1k.csv,Val_1,8k-brir(0-5).csv
+  value: "Val-WSJ-2mix-min-8k-OnlineMix.csv"
+save_dir_inf:
+  desc: where store the batched inference
+  value: "sudoRm-bi-wsj2-Reverb-Randomcuts-EarlyStopping-ild-Tests/"
+save_name_inf:
+  desc: name Unilateral batched inference
+  value: "sudoRm-bi-wsj2-Reverb-Randomcuts-EarlyStopping-ild"
+Best_epoch:
+  desc: best epoch from the training based on validation loss
+  value: "sudoRm-WsJ2Mix/sudoRm-2ch-bilateral-wsj2mix-onlineMix-ES-ild-finalepoch=160-val_loss=-10.13.ckpt"
+
